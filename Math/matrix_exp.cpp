@@ -23,6 +23,7 @@ Matrix matmul(Matrix a, Matrix b, ll mod) {
 }
 
 Matrix matpow(Matrix a, ll b, ll mod) {
+    assert(a.size() == a[0].size());
     int n = a.size();
 
     Matrix ans(n, vector<ll>(n, 0));
