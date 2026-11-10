@@ -1,15 +1,12 @@
-ll extended_gcd(ll a, ll b, ll &x, ll &y) {
+tuple<ll, ll, ll> extended_gcd(ll a, ll b) {
     if(b == 0) {
-        x = 1;
-        y = 0;
-        return a;
+        return {a, 1, 0};
     }
 
-    ll x1, y1;
-    ll g = extended_gcd(b, a % b, x1, y1);
+    auto [g, x1, y1] = extended_gcd(b, a % b);
 
-    x = y1;
-    y = x1 - (a / b) * y1;
+    ll x = y1;
+    ll y = x1 - (a / b) * y1;
 
-    return g;
+    return {g, x, y};
 }
