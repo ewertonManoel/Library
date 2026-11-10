@@ -1,6 +1,7 @@
 using Matrix = vector<vector<ll>>;
 
 Matrix matmul(Matrix a, Matrix b, ll mod) {
+    assert(a[0].size() == b.size());
     int n = a.size();
     int m = a[0].size();
     int p = b[0].size();
