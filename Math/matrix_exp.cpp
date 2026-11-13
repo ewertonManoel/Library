@@ -1,4 +1,3 @@
-
 using Matrix = vector<vector<ll>>;
 
 Matrix matmul(const Matrix& a, const Matrix& b, ll mod) {
