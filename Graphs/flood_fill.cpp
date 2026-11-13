@@ -1,5 +1,5 @@
-int dx[4] = {-1, 1, 0, 0};
-int dy[4] = {0, 0, -1, 1};
+int dr[4] = {-1, 1, 0, 0};
+int dc[4] = {0, 0, -1, 1};
 
 vector<pii> flood_fill(int r, int c, vector<string>& grid, vector<vector<bool>>& visited) {
     int n = grid.size(), m = grid[0].size();
@@ -12,20 +12,20 @@ vector<pii> flood_fill(int r, int c, vector<string>& grid, vector<vector<bool>>&
     q.push({r, c});
 
     while(!q.empty()) {
-        auto [x, y] = q.front();
+        auto [r, c] = q.front();
         q.pop();
 
-        group.push_back({x, y});
+        group.push_back({r, c});
 
         for(int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
+            int nr = r + dr[i];
+            int nc = c + dc[i];
 
-            if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-            if(visited[nx][ny] || grid[nx][ny] != target) continue;
+            if(nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+            if(visited[nr][nc] || grid[nr][nc] != target) continue;
 
-            visited[nx][ny] = true;
-            q.push({nx, ny});
+            visited[nr][nc] = true;
+            q.push({nr, nc});
         }
     }
 
