@@ -1,6 +1,6 @@
 using Matrix = vector<vector<ll>>;
 
-Matrix matmul(const Matrix& a, const Matrix& b, ll mod) {
+Matrix matmul(Matrix& a, Matrix& b, ll mod) {
     assert(a[0].size() == b.size());
 
     int n = a.size(), m = a[0].size(), p = b[0].size();
