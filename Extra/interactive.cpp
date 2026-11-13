@@ -1,7 +1,7 @@
 ll ask(ll x) {
    cout << "? " << x << endl;
-   ll resp; cin >> resp;
-   return resp;
+   ll ans; cin >> ans;
+   return ans;
 }
 
 void answer(ll x) {
