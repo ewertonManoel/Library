@@ -1,21 +1,18 @@
+
 using Matrix = vector<vector<ll>>;
 
-Matrix matmul(Matrix a, Matrix b, ll mod) {
+Matrix matmul(const Matrix& a, const Matrix& b, ll mod) {
     assert(a[0].size() == b.size());
-    
-    int n = a.size();
-    int m = a[0].size();
-    int p = b[0].size();
 
+    int n = a.size(), m = a[0].size(), p = b[0].size();
     Matrix ans(n, vector<ll>(p, 0));
 
     for(int i = 0; i < n; i++) {
-        for(int j = 0; j < p; j++) {
-            for(int k = 0; k < m; k++) {
-                ans[i][j] = (
-                    (__int128)ans[i][j] +
-                    (__int128)a[i][k] * b[k][j]
-                ) % mod;
+        for(int k = 0; k < m; k++) {
+            if(a[i][k] == 0) continue;
+
+            for(int j = 0; j < p; j++) {
+                ans[i][j] = ((__int128)ans[i][j] + (__int128)a[i][k] * b[k][j]) % mod;
             }
         }
     }
@@ -23,21 +20,15 @@ Matrix matmul(Matrix a, Matrix b, ll mod) {
     return ans;
 }
 
-Matrix matpow(Matrix a, ll b, ll mod) {
+Matrix matpow(Matrix a, Matrix ans, ll b, ll mod) {
     assert(a.size() == a[0].size());
-    
-    int n = a.size();
-
-    Matrix ans(n, vector<ll>(n, 0));
-
-    for(int i = 0; i < n; i++)
-        ans[i][i] = 1 % mod;
+    assert(a[0].size() == ans.size());
 
     while(b > 0) {
-        if(b & 1) ans = matmul(ans, a, mod);
+        if(b & 1) ans = matmul(a, ans, mod);
 
-        a = matmul(a, a, mod);
         b >>= 1;
+        if(b) a = matmul(a, a, mod);
     }
 
     return ans;
