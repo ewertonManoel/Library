@@ -1,21 +1,26 @@
-vector<int> sieve(int n) {
-    vector<bool> is_prime(n + 1, true);
-    vector<int> primes;
+vector<int> primes, spf;
 
-    is_prime[0] = false;
-    if(n >= 1) is_prime[1] = false;
+void sieve(int n) {
+    primes.clear();
+    spf.resize(n + 1);
+
+    for(int i = 0; i <= n; i++) {
+        spf[i] = i;
+    }
 
     for(int i = 2; i * i <= n; i++) {
-        if(!is_prime[i]) continue;
+        if(spf[i] != i) continue;
 
         for(int j = i * i; j <= n; j += i) {
-            is_prime[j] = false;
+            if(spf[j] == j) {
+                spf[j] = i;
+            }
         }
     }
 
     for(int i = 2; i <= n; i++) {
-        if(is_prime[i]) primes.push_back(i);
+        if(spf[i] == i) {
+            primes.push_back(i);
+        }
     }
-
-    return primes;
 }
