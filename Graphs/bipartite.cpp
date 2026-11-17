@@ -1,4 +1,4 @@
-bool bipartite(int n, vector<vector<int>>& adj) {
+vector<int> bipartite(int n, vector<vector<int>>& adj) {
     vector<int> color(n, -1);
 
     for(int s = 0; s < n; s++) {
@@ -18,11 +18,11 @@ bool bipartite(int n, vector<vector<int>>& adj) {
                     q.push(v);
                 }
                 else if(color[v] == color[u]) {
-                    return false;
+                    return {};
                 }
             }
         }
     }
 
-    return true;
+    return color;
 }
