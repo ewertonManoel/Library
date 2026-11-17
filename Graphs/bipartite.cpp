@@ -1,4 +1,5 @@
-vector<int> bipartite(int n, vector<vector<int>>& adj) {
+vector<int> bipartite(vector<vector<int>>& adj) {
+    int n = adj.size();
     vector<int> color(n, -1);
 
     for(int s = 0; s < n; s++) {
