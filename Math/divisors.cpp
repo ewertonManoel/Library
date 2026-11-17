@@ -1,5 +1,5 @@
 vector<ll> get_divisors(ll n) {
-    vector<ll> divisors;
+    vector<ll> divisors, aux;
 
     for(ll i = 1; i * i <= n; i++) {
         if(n % i != 0) continue;
@@ -7,11 +7,13 @@ vector<ll> get_divisors(ll n) {
         divisors.push_back(i);
 
         if(i != n / i) {
-            divisors.push_back(n / i);
+            aux.push_back(n / i);
         }
     }
 
-    sort(divisors.begin(), divisors.end());
+    for(int i = (int)aux.size() - 1; i >= 0; i--) {
+        divisors.push_back(aux[i]);
+    }
 
     return divisors;
 }
