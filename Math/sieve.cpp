@@ -1,8 +1,5 @@
-vector<int> primes, spf;
-
-void sieve(int n) {
-    primes.clear();
-    spf.resize(n + 1);
+pair<vector<int>, vector<int>> sieve(int n) {
+    vector<int> primes, spf(n + 1);
 
     for(int i = 0; i <= n; i++) {
         spf[i] = i;
@@ -23,4 +20,6 @@ void sieve(int n) {
             primes.push_back(i);
         }
     }
+
+    return {primes, spf};
 }
