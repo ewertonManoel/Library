@@ -4,12 +4,12 @@ vector<ll> bitmask_dp(int n) {
     dp[0] = 0;
 
     for(int mask = 0; mask < (1 << n); mask++) {
-        for(int i = 0; i < n; i++) {
-            if(mask & (1 << i)) continue;
+        for(int bit = 0; bit < n; bit++) {
+            if(mask & (1 << bit)) continue;
 
-            int new_mask = mask | (1 << i);
+            int new_mask = mask | (1 << bit);
 
-            dp[new_mask] = min(dp[new_mask], dp[mask] + cost[mask][i]);
+            dp[new_mask] = min(dp[new_mask], dp[mask] + cost[mask][bit]);
         }
     }
 
