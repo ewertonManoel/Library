@@ -1,5 +1,8 @@
-pair<vector<ll>, vector<ll>> precompute_factorials(ll n, ll mod) {
-    vector<ll> fact(n + 1), inv_fact(n + 1);
+vector<ll> fact, inv_fact;
+
+void precompute_factorials(ll n, ll mod) {
+    fact.resize(n + 1);
+    inv_fact.resize(n + 1);
 
     fact[0] = 1;
 
@@ -12,6 +15,4 @@ pair<vector<ll>, vector<ll>> precompute_factorials(ll n, ll mod) {
     for(ll i = n; i >= 1; i--) {
         inv_fact[i - 1] = (inv_fact[i] * i) % mod;
     }
-
-    return {fact, inv_fact};
 }
