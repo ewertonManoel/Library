@@ -5,7 +5,6 @@ vector<ll> get_lis(vector<ll>& v) {
     vector<int> id, parent(n, -1);
 
     for(int i = 0; i < n; i++) {
-        // Use lower_bound for strictly increasing, upper_bound for non-decreasing
         int pos = lower_bound(dp.begin(), dp.end(), v[i]) - dp.begin();
         if(pos > 0) parent[i] = id[pos - 1];
         if(pos == (int)dp.size()) {
