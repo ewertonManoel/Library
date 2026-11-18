@@ -8,9 +8,7 @@ vector<int> monotonic_stack(vector<int>& v) {
             ans[st.top()] = i;
             st.pop();
         }
-
         st.push(i);
     }
-
     return ans;
 }
