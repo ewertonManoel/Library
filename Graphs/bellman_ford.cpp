@@ -1,7 +1,6 @@
 using edge = tuple<ll, int, int>;
 
 pair<vector<ll>, bool> bellman_ford(int src, int n, vector<edge>& edges) {
-    const ll INF = 1e18;
     vector<ll> dist(n, INF);
     dist[src] = 0;
 
