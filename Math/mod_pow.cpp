@@ -7,6 +7,5 @@ ll modpow(ll a, ll b, ll mod) {
         a = (__int128)a * a % mod;
         b >>= 1;
     }
-
     return ans;
 }
