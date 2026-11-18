@@ -1,8 +1,6 @@
 struct SegTree {
     int n; vector<ll> st;
-
     SegTree(int n) : n(n), st(4 * n) {}
-
     SegTree(vector<ll>& a) : SegTree(a.size()) {build(a, 1, 0, n - 1);}
 
     void build(vector<ll>& a, int p, int l, int r) {
@@ -11,7 +9,6 @@ struct SegTree {
         build(a, p * 2, l, m); build(a, p * 2 + 1, m + 1, r);
         st[p] = st[p * 2] + st[p * 2 + 1];
     }
-
     void update(int idx, ll val, int p = 1, int l = 0, int r = -1) {
         if (r == -1) r = n - 1;
         if (l == r) { st[p] = val; return; }
@@ -19,7 +16,6 @@ struct SegTree {
         idx <= m ? update(idx, val, p * 2, l, m) : update(idx, val, p * 2 + 1, m + 1, r);
         st[p] = st[p * 2] + st[p * 2 + 1];
     }
-
     ll query(int ql, int qr, int p = 1, int l = 0, int r = -1) {
         if (r == -1) r = n - 1;
         if (r < ql || l > qr) return 0;
