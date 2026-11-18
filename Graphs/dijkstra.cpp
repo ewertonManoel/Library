@@ -1,6 +1,6 @@
 vector<ll> dijkstra(int src, vector<vector<pair<int, ll>>>& adj) {
     int n = adj.size();
-    vector<ll> dist(n, 1e18);
+    vector<ll> dist(n, INF);
     priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> pq;
 
     dist[src] = 0;
