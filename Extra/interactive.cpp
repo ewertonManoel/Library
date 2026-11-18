@@ -3,7 +3,6 @@ ll ask(ll x) {
    ll ans; cin >> ans;
    return ans;
 }
-
 void answer(ll x) {
     cout << "! " << x << endl;
 }
