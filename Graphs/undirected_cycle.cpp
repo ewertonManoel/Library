@@ -1,18 +1,17 @@
-bool has_cycle_dfs(int u, int p, vector<bool>& visited, vector<vector<int>>& adj) {
-    visited[u] = true;
-    for(int v : adj[u]) {
-        if(v == p) continue;
-        if(!visited[v] && has_cycle_dfs(v, u, visited, adj)) return true;
-        else return true;
+bool dfs(int u, int p, vector<bool>& vis, vector<vector<int>>& adj) {
+    vis[u] = true;
+    for (int v : adj[u]) {
+        if (v == p) continue;
+        if (vis[v] || dfs(v, u, vis, adj)) return true;
     }
     return false;
 }
 
 bool has_cycle(vector<vector<int>>& adj) {
     int n = adj.size();
-    vector<bool> visited(n, false);
-    for(int i = 0; i < n; i++) {
-        if(!visited[i] && has_cycle_dfs(i, -1, visited, adj)) return true;
+    vector<bool> vis(n, false);
+    for (int i = 0; i < n; i++) {
+        if (!vis[i] && dfs(i, -1, vis, adj)) return true;
     }
     return false;
 }
