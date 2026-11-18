@@ -12,7 +12,7 @@ struct SegTree {
 
     void update(int idx, ll val, int p = 1, int l = 0, int r = -1) {
         if (r == -1) r = n - 1;
-        if (l == r) { st[p] = val; return; }
+        if (l == r) {st[p] = val; return;}
         int m = l + (r - l) / 2;
         idx <= m ? update(idx, val, p * 2, l, m) : update(idx, val, p * 2 + 1, m + 1, r);
         st[p] = st[p * 2] + st[p * 2 + 1];
