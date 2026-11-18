@@ -1,4 +1,4 @@
-vector<int> next_smaller(vector<int>& v) {
+vector<int> monotonic_stack(vector<int>& v) {
     int n = v.size();
     vector<int> ans(n, -1);
     stack<int> st;
