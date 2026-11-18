@@ -3,9 +3,7 @@ struct SegTree {
 
     SegTree(int n) : n(n), st(4 * n) {}
 
-    SegTree(vector<ll>& a) : SegTree(a.size()) { 
-        build(a, 1, 0, n - 1); 
-    }
+    SegTree(vector<ll>& a) : SegTree(a.size()) {build(a, 1, 0, n - 1);}
 
     void build(vector<ll>& a, int p, int l, int r) {
         if (l == r) { st[p] = a[l]; return; }
