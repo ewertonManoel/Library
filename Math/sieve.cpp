@@ -20,3 +20,16 @@ void sieve(int n) {
         }
     }
 }
+
+vector<pair<int, int>> factorize_spf(int x) {
+    vector<pair<int, int>> factors;
+    while(x > 1) {
+        int p = spf[x], cnt = 0;
+        while(x % p == 0) {
+            x /= p;
+            cnt++;
+        }
+        factors.push_back({p, cnt});
+    }
+    return factors;
+}

@@ -14,3 +14,8 @@ void precompute_factorials(ll n, ll mod) {
         inv_fact[i - 1] = (inv_fact[i] * i) % mod;
     }
 }
+
+ll nCr(ll n, ll r, ll mod) {
+    if(r < 0 || r > n) return 0;
+    return fact[n] * inv_fact[r] % mod * inv_fact[n - r] % mod;
+}

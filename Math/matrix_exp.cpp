@@ -15,6 +15,7 @@ Matrix matmul(Matrix& a, Matrix& b, ll mod) {
     return ans;
 }
 
+// Calculates (a^b) * ans
 Matrix matpow(Matrix a, Matrix ans, ll b, ll mod) {
     while(b > 0) {
         if(b & 1) ans = matmul(a, ans, mod);

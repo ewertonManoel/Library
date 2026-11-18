@@ -1,6 +1,6 @@
-vector<vector<ll>> kadane(vector<ll>& v) {
+vector<array<ll, 2>> kadane(vector<ll>& v) {
     int n = v.size();
-    vector<vector<ll>> dp(n + 1, vector<ll>(2, -INF));
+    vector<array<ll, 2>> dp(n + 1, {-INF, -INF});
     dp[n][0] = -INF;
     dp[n][1] = 0;
 

@@ -9,18 +9,27 @@ pair<vector<ll>, bool> bellman_ford(int src, int n, vector<edge>& edges) {
         for(auto [w, u, v] : edges) {
             if(dist[u] == INF) continue;
             if(dist[u] + w < dist[v]) {
-                dist[v] = dist[u] + w;
+                dist[v] = max(-INF, dist[u] + w);
                 changed = true;
             }
         }
         if(!changed) break;
     }
 
-    for(auto [w, u, v] : edges) {
-        if(dist[u] == INF) continue;
-        if(dist[u] + w < dist[v]) {
-            return {dist, true};
+    bool has_neg_cycle = false;
+    for(int i = 0; i < n; i++) {
+        bool changed = false;
+        for(auto [w, u, v] : edges) {
+            if(dist[u] == INF) continue;
+            if(dist[u] == -INF || dist[u] + w < dist[v]) {
+                if(dist[v] != -INF) {
+                    dist[v] = -INF;
+                    changed = true;
+                    has_neg_cycle = true;
+                }
+            }
         }
+        if(!changed) break;
     }
-    return {dist, false};
+    return {dist, has_neg_cycle};
 }
