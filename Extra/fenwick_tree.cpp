@@ -1,6 +1,7 @@
 struct Fenwick {
     vector<ll> bit;
     Fenwick(int n) : bit(n + 1) {}
+
     void add(int i, ll v) { 
         for(++i; i < bit.size(); i += i & -i) bit[i] += v; 
     }
