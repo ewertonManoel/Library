@@ -4,7 +4,7 @@ vector<int> monotonic_stack(vector<int>& v) {
     stack<int> st;
 
     for(int i = 0; i < n; i++) {
-        while(!st.empty() && v[st.top()] > v[i]) {
+        while(!st.empty() && v[st.top()] < v[i]) {
             ans[st.top()] = i;
             st.pop();
         }
