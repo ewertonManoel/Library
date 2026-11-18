@@ -1,5 +1,5 @@
-vector<int> compress(vector<int>& v) {
-    vector<int> vals = v, ans(v.size(), 0);
+vector<ll> compress(vector<ll>& v) {
+    vector<ll> vals = v, ans(v.size(), 0);
     sort(vals.begin(), vals.end());
     vals.erase(unique(vals.begin(), vals.end()), vals.end());
 
