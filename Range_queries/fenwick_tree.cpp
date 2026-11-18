@@ -2,36 +2,23 @@ struct Fenwick {
     int n;
     vector<ll> bit;
 
-    Fenwick(int n) {
-        this->n = n;
-        bit.assign(n + 1, 0);
-    }
-
-    Fenwick(vector<ll>& a) {
-        n = a.size();
-        bit.assign(n + 1, 0);
-
+    Fenwick(vector<ll>& a) : n(a.size()), bit(n + 1, 0) {
         for(int i = 1; i <= n; i++) {
             bit[i] += a[i - 1];
-
             int j = i + (i & -i);
             if(j <= n) bit[j] += bit[i];
         }
     }
 
     void add(int idx, ll val) {
-        for(idx++; idx <= n; idx += idx & -idx) {
+        for(idx++; idx <= n; idx += idx & -idx)
             bit[idx] += val;
-        }
     }
 
     ll query(int idx) {
         ll ans = 0;
-
-        for(idx++; idx > 0; idx -= idx & -idx) {
+        for(idx++; idx > 0; idx -= idx & -idx)
             ans += bit[idx];
-        }
-
         return ans;
     }
 
