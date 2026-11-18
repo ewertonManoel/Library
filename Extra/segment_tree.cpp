@@ -1,52 +1,32 @@
 struct SegTree {
-    int n;
-    vector<ll> st;
+    int n; vector<ll> st;
 
-    SegTree(vector<ll>& a) : n(a.size()), st(4 * n, 0) {
-        build(1, 0, n - 1, a);
+    SegTree(int n) : n(n), st(4 * n) {}
+
+    SegTree(vector<ll>& a) : SegTree(a.size()) { 
+        build(a, 1, 0, n - 1); 
     }
 
-    void build(int p, int l, int r, vector<ll>& a) {
-        if(l == r) {
-            st[p] = a[l];
-            return;
-        }
-
-        int m = (l + r) / 2;
-        build(p * 2, l, m, a);
-        build(p * 2 + 1, m + 1, r, a);
-
+    void build(vector<ll>& a, int p, int l, int r) {
+        if (l == r) { st[p] = a[l]; return; }
+        int m = l + (r - l) / 2;
+        build(a, p * 2, l, m); build(a, p * 2 + 1, m + 1, r);
         st[p] = st[p * 2] + st[p * 2 + 1];
     }
 
-    void update(int p, int l, int r, int idx, ll val) {
-        if(l == r) {
-            st[p] = val;
-            return;
-        }
-
-        int m = (l + r) / 2;
-
-        if(idx <= m) update(p * 2, l, m, idx, val);
-        else update(p * 2 + 1, m + 1, r, idx, val);
-
+    void update(int idx, ll val, int p = 1, int l = 0, int r = -1) {
+        if (r == -1) r = n - 1;
+        if (l == r) { st[p] = val; return; }
+        int m = l + (r - l) / 2;
+        idx <= m ? update(idx, val, p * 2, l, m) : update(idx, val, p * 2 + 1, m + 1, r);
         st[p] = st[p * 2] + st[p * 2 + 1];
     }
 
-    ll query(int p, int l, int r, int ql, int qr) {
-        if(r < ql || l > qr) return 0;
-        if(ql <= l && r <= qr) return st[p];
-
-        int m = (l + r) / 2;
-        return query(p * 2, l, m, ql, qr) +
-               query(p * 2 + 1, m + 1, r, ql, qr);
-    }
-
-    void update(int idx, ll val) {
-        update(1, 0, n - 1, idx, val);
-    }
-
-    ll query(int l, int r) {
-        return query(1, 0, n - 1, l, r);
+    ll query(int ql, int qr, int p = 1, int l = 0, int r = -1) {
+        if (r == -1) r = n - 1;
+        if (r < ql || l > qr) return 0;
+        if (ql <= l && r <= qr) return st[p];
+        int m = l + (r - l) / 2;
+        return query(ql, qr, p * 2, l, m) + query(ql, qr, p * 2 + 1, m + 1, r);
     }
 };
