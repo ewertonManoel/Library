@@ -2,7 +2,6 @@
 
 <p>
   <img src="https://img.shields.io/badge/Language-C++-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++" />
-  <img src="https://img.shields.io/badge/Algorithms-28-58A6FF?style=flat-square" alt="28 Algorithms" />
   <img src="https://img.shields.io/badge/Status-Active-3FB950?style=flat-square" alt="Active" />
 </p>
 
