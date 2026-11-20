@@ -1,7 +1,7 @@
 struct SegTree {
-    const ll NEUTRAL = 0;
+    ll NEUTRAL = 0;
     int n; vector<ll> st;
-    SegTree(int n) : n(n), st(4 * n, NEUTRAL) {}
+    SegTree(int n = 0) : n(n), st(4 * n, NEUTRAL) {}
     SegTree(vector<ll>& a) : SegTree(a.size()) {build(a, 1, 0, n - 1);}
 
     ll merge(ll a, ll b) { return a + b; }
