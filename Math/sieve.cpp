@@ -21,6 +21,10 @@ void sieve(int n) {
     }
 }
 
+bool is_prime(int x) {
+    return x >= 2 && spf[x] == x;
+}
+
 vector<pair<int, int>> factorize_spf(int x) {
     vector<pair<int, int>> factors;
     while(x > 1) {
