@@ -1,4 +1,3 @@
-const int INF = 1e9;
 int n;
 vector<int> v;
 vector<vector<int>> dp;
