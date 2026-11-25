@@ -1,12 +1,19 @@
-vector<array<ll, 2>> kadane(vector<ll>& v) {
-    int n = v.size();
-    vector<array<ll, 2>> dp(n + 1, {-INF, -INF});
-    dp[n][0] = -INF;
-    dp[n][1] = 0;
+const int INF = 1e9;
+int n;
+vector<int> v;
+vector<vector<int>> dp;
 
-    for(int i = n - 1; i >= 0; i--) {
-        dp[i][0] = max(v[i] + dp[i + 1][1], dp[i + 1][0]);
-        dp[i][1] = max(v[i] + dp[i + 1][1], 0LL);
+int solve(int i, bool started) {
+    if (i == n) return started ? 0 : -INF;
+    if (dp[i][started] != -1) return dp[i][started];
+
+    int take = v[i] + solve(i + 1, 1);
+    if (!started) {
+        int skip = solve(i + 1, started);
+        return dp[i][started] = max(take, skip);
+    } 
+    else {
+        int stop = 0;
+        return dp[i][started] = max(take, stop);
     }
-    return dp;
 }
