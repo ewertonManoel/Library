@@ -5,7 +5,7 @@ ll nCr(ll n, ll r) {
 
     ll res = 1;
     for (ll i = 1; i <= r; i++) {
-        res = res * (n - r + i) / i;
+        res = (__int128)res * (n - r + i) / i;
     }
     return res;
 }

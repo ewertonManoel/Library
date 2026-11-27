@@ -5,6 +5,7 @@ struct Trie {
 
     void insert(const string& s) {
         int u = 0;
+        pref[0]++;
         for (char c : s) {
             int idx = c - 'a';
             if (!nxt[u][idx]) {
@@ -20,6 +21,7 @@ struct Trie {
     void erase(const string& s) {
         if (!count_word(s)) return;
         int u = 0;
+        pref[0]--;
         for (char c : s) {
             u = nxt[u][c - 'a'];
             pref[u]--;
