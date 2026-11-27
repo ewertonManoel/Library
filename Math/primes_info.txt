@@ -47,4 +47,22 @@ Ate N   | Maior gap | Exemplo
 10^15   | 924       | perto de 1.93 * 10^14
 10^18   | 1.476     | perto de 1.42 * 10^18
 
-Proximo primo depois de N, testar no maximo (Gap / 2) impares.
+achar o proximo primo depois de N, testa no maximo Gap / 2 impares.
+
+
+4. MAXIMO DE DIVISORES E FATORES PRIMOS DISTINTOS
+--------------------------------------------------
+Ate N   | Max divisores | Max primos distintos
+--------+---------------+-------------------------
+10^3    | 32            | 4
+10^4    | 64            | 5
+10^5    | 128           | 6
+10^6    | 240           | 7
+10^7    | 448           | 8
+10^8    | 768           | 8
+10^9    | 1.344         | 9
+10^12   | 6.720         | 11
+10^15   | 26.880        | 13
+10^18   | 103.680       | 15
+
+Formula aproximada: max de divisores ~ N^(1/3).
