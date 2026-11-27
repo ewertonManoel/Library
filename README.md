@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Status-Active-3FB950?style=flat-square" alt="Active" />
 </p>
 
-Personal collection of clean, concise, and contest-ready C++ implementations of classic algorithms and data structures for competitive programming.
+Personal collection of clean, concise, and contest-ready C++ implementations and quick-reference sheets of classic algorithms and data structures for competitive programming.
 
 ---
 
@@ -13,9 +13,11 @@ Personal collection of clean, concise, and contest-ready C++ implementations of 
 
 ### Dynamic Programming (`DP/`)
 - [Kadane's Algorithm](./DP/kadane.cpp)
+- [0/1 Knapsack](./DP/knapsack.cpp)
 - [Longest Common Subsequence (LCS)](./DP/lcs.cpp)
 - [Longest Increasing Subsequence (LIS)](./DP/lis.cpp)
 - [Subset Sum](./DP/subset_sum.cpp)
+- [Traveling Salesman Problem (TSP)](./DP/tsp.cpp)
 
 ### Graphs (`Graphs/`)
 - [Bellman-Ford](./Graphs/bellman_ford.cpp)
@@ -32,13 +34,20 @@ Personal collection of clean, concise, and contest-ready C++ implementations of 
 
 ### Math & Number Theory (`Math/`)
 - [Divisors](./Math/divisors.cpp)
-- [Factorials & Combinatorics](./Math/factorials.cpp)
+- [Factorials & Modular Combinatorics](./Math/factorials.cpp)
 - [Matrix Exponentiation](./Math/matrix_exp.cpp)
 - [Miller-Rabin Primality Test](./Math/miller_rabin.cpp)
 - [Modular Inverse](./Math/mod_inv.cpp)
 - [Modular Exponentiation](./Math/mod_pow.cpp)
+- [Binomial Coefficient (nCr)](./Math/nCr.cpp)
 - [Prime Factorization](./Math/prime_fact.cpp)
-- [Sieve of Eratosthenes](./Math/sieve.cpp)
+- [Sieve of Eratosthenes (SPF)](./Math/sieve.cpp)
+- [Math Reference Sheet](./Math/math_info.txt)
+- [Prime Numbers Reference Sheet](./Math/primes_info.txt)
+
+### Strings (`String/`)
+- [String Hashing (Double Rolling Hash)](./String/hashing.cpp)
+- [Trie (Prefix Tree)](./String/trie.cpp)
 
 ### Data Structures & Techniques (`Extra/`)
 - [Coordinate Compression](./Extra/compression.cpp)
